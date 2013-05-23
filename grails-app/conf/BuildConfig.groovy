@@ -40,8 +40,12 @@ grails.project.dependency.resolution = {
 
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
-
-        // runtime 'mysql:mysql-connector-java:5.1.22'
+		test "org.spockframework:spock-grails-support:0.7-groovy-2.0"
+        test "com.xlson.groovycsv:groovycsv:1.0"
+        compile("joda-time:joda-time-hibernate:1.3") {
+             excludes "joda-time", "hibernate"
+        }
+		// runtime 'mysql:mysql-connector-java:5.1.22'
     }
 
     plugins {
@@ -59,5 +63,10 @@ grails.project.dependency.resolution = {
         runtime ":database-migration:1.3.2"
 
         compile ':cache:1.0.1'
+		compile ":joda-time:1.4"
+		 test(":spock:0.7") {
+			 exclude "spock-grails-support"
+		 }
+		
     }
 }
