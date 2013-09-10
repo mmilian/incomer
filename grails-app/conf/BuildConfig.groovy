@@ -16,6 +16,7 @@ grails.project.dependency.resolution = {
     inherits("global") {
         // specify dependency exclusions here; for example, uncomment this to disable ehcache:
         // excludes 'ehcache'
+        excludes 'xercesImpl'
     }
     log "error" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
     checksums true // Whether to verify checksums on resolve
@@ -31,12 +32,15 @@ grails.project.dependency.resolution = {
         mavenLocal()
         mavenCentral()
 
+        mavenRepo "http://repo.grails.org/grails/libs-releases/"
+        mavenRepo "http://m2repo.spockframework.org/ext/"
         // uncomment these (or add new ones) to enable remote dependency resolution from public Maven repositories
         //mavenRepo "http://snapshots.repository.codehaus.org"
         //mavenRepo "http://repository.codehaus.org"
         //mavenRepo "http://download.java.net/maven/2/"
         //mavenRepo "http://repository.jboss.com/maven2/"
     }
+
 
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
@@ -64,6 +68,8 @@ grails.project.dependency.resolution = {
 
         compile ':cache:1.0.1'
 		compile ":joda-time:1.4"
+        compile ":excel-import:1.0.0"
+        runtime ":excel-export:0.1.5"   
 		 test(":spock:0.7") {
 			 exclude "spock-grails-support"
 		 }
