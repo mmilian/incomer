@@ -44,7 +44,8 @@ grails.project.dependency.resolution = {
 
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
-		test "org.spockframework:spock-grails-support:0.7-groovy-2.0"
+        runtime 'postgresql:postgresql:9.0-801.jdbc4'
+        test "org.spockframework:spock-grails-support:0.7-groovy-2.0"
         test "com.xlson.groovycsv:groovycsv:1.0"
         compile("joda-time:joda-time-hibernate:1.3") {
              excludes "joda-time", "hibernate"
@@ -54,9 +55,10 @@ grails.project.dependency.resolution = {
 
     plugins {
         runtime ":hibernate:$grailsVersion"
-        runtime ":jquery:1.8.3"
+        runtime ":jquery:1.10.2"
+        compile ":jquery-ui:1.8.24"
         runtime ":resources:1.1.6"
-
+        //runtime ':twitter-bootstrap:2.3.2'
         // Uncomment these (or add new ones) to enable additional resources capabilities
         //runtime ":zipped-resources:1.0"
         //runtime ":cached-resources:1.0"
@@ -65,7 +67,8 @@ grails.project.dependency.resolution = {
         build ":tomcat:$grailsVersion"
 
         runtime ":database-migration:1.3.2"
-
+        compile ":twitter-bootstrap:3.0.0"
+        compile ":bootstrap-file-upload:2.1.2"
         compile ':cache:1.0.1'
 		compile ":joda-time:1.4"
         compile ":excel-import:1.0.0"

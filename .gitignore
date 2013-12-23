@@ -12,6 +12,7 @@
 /*.tmproj
 /ivy*
 /eclipse
+/target-eclipse
 
 # default HSQL database files for production mode
 /prodDb.*
@@ -23,6 +24,7 @@
 # logs
 /stacktrace.log
 /logs
+/*.log
 
 # project release file
 /*.war
