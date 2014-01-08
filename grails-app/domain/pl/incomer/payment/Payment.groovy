@@ -23,9 +23,9 @@ class Payment {
 
 	static  headers = ['Date','Name', 'Amount', "Email", "Target", "Type"]
     static  withProperties = ['date','fullName','amount', 'email', "target", "type"]
-    static  withHashedProperties = ['date','initials','amount', 'hashedMail', "target", "type"]
+    static  withHashedProperties = ['date','initials','amount', 'hashedMail', "standarizedTarget", "type"]
 
-	static transients = ['initials','hashedMail','fullName','type']
+	static transients = ['initials','hashedMail','fullName','type','standarizedTarget']
 
     static constraints = {
 		date nullable: false	
@@ -43,7 +43,10 @@ class Payment {
   		id generator: 'assigned', name : 'transactionId'
 	}
 
-
+	String getStandarizedTarget() {
+		return target?.contains("zmieleni") ? "Wsparcie zmieleni" : "Wsparcie stowarzyszenie JOW" 
+	}
+	
 	String getId() {
 		transactionId
 	}
